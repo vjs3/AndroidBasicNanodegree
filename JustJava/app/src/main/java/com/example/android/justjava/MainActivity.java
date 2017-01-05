@@ -58,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
             price = price + 2;
         }
 
-
-
-
-
         String summary = createOrderSummary(price, isCheckedCream, isCheckedChocolate, value, quantity);
         displayMessage(summary);
     }

@@ -76,8 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:text="Order Summary"
-        android:textAllCaps="true" />
+        android:text="ORDER SUMMARY" />
 
    <!-- <TextView
         android:id="@+id/price_text_view"
