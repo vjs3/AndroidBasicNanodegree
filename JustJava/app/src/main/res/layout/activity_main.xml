@@ -12,19 +12,20 @@
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/name"
         android:layout_marginBottom="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TOPPINGS"/>
+        android:text="@string/toppings"/>
 
     <CheckBox
         android:id="@+id/notify_me_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:text="Whipped Cream"
+        android:text="@string/whipped_cream"
         android:textAppearance="?android:textAppearanceMedium" />
 
     <CheckBox
@@ -32,14 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:text="Chocolate"
+        android:text="@string/chocolate"
         android:textAppearance="?android:textAppearanceMedium" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
-        android:text="QUANTITY" />
+        android:text="@string/quantity" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -50,13 +51,13 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:onClick="incrementOrder"
-            android:text="+" />
+            android:text="@string/plus" />
 
         <TextView
             android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
+            android:text="@string/initial_quantity_value"
             android:textColor="@android:color/black"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
@@ -66,7 +67,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:onClick="decrementOrder"
-            android:text="-" />
+            android:text="@string/subtract" />
 
     </LinearLayout>
 
@@ -75,5 +76,5 @@
         android:layout_height="wrap_content"
         android:onClick="submitOrder"
         android:layout_marginTop="20dp"
-        android:text="Order" />
+        android:text="@string/order" />
 </LinearLayout>

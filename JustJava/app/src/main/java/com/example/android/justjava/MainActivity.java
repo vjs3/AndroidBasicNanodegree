@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.text.NumberFormat;
 
+import static android.R.attr.value;
+
 
 /**
  * This app displays an order form to order coffee.
@@ -66,13 +68,13 @@ public class MainActivity extends AppCompatActivity {
         String summary = createOrderSummary(price, isCheckedCream, isCheckedChocolate, value, quantity);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setType("text/html");
-        intent.setData(Uri.parse("mailto:")); //only emails apps should handle this
+        intent.setType(getString(R.string.text_type));
+        intent.setData(Uri.parse(getString(R.string.mai_to))); //only emails apps should handle this
         intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava Coffee Shop summary for " + value);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_name,value));
         intent.putExtra(Intent.EXTRA_TEXT, summary);
 
-        startActivity(Intent.createChooser(intent, "Send Email"));
+        startActivity(Intent.createChooser(intent, getString(R.string.send_email)));
     }
 
     /**
@@ -81,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     private int  calculatePrice() {
-        int price = quantity * 5;
+         price = quantity * 5;
         return price;
     }
 
     private String createOrderSummary(int price, boolean isCheckedCream, boolean isCheckedChocolate, String name, int quantity){
-        String summary = "Name: " + name + "\n" + "Add whipped Cream? " + isCheckedCream + "\n" + "Add Chocolate? " + isCheckedChocolate + "\n"+ "Quantity: " + quantity + "\n" + "Total: " + price + "\n" + "Thank you!";
+        String summary = "Name: " + name + "\n" + getString(R.string.order_summary_whipped_cream) + isCheckedCream + "\n" + getString(R.string.order_summary_chocolate) + isCheckedChocolate + "\n"+ getString(R.string.order_summary_quantity) + quantity + "\n" + getString(R.string.order_summary_price) + price + "\n" + getString(R.string.thank_you);
         return summary;
     }
 
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         quantity++;
         if(quantity > 100){
             quantity = 100;
-            Toast.makeText(this, "You can't order more than 100 cup of coffees", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_max, Toast.LENGTH_SHORT).show();
             return;
         }
         displayQuantity(quantity);
