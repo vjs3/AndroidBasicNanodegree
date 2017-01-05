@@ -5,6 +5,8 @@
 
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBoxCream;
     CheckBox checkBoxChocolate;
     EditText name;
+    String[] addresses = {"vishwajeets912@gmail.com"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String summary = createOrderSummary(price, isCheckedCream, isCheckedChocolate, value, quantity);
-        displayMessage(summary);
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("text/html");
+        intent.setData(Uri.parse("mailto:")); //only emails apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava Coffee Shop summary for " + value);
+        intent.putExtra(Intent.EXTRA_TEXT, summary);
+
+        startActivity(Intent.createChooser(intent, "Send Email"));
     }
 
     /**
@@ -77,14 +88,6 @@ public class MainActivity extends AppCompatActivity {
     private String createOrderSummary(int price, boolean isCheckedCream, boolean isCheckedChocolate, String name, int quantity){
         String summary = "Name: " + name + "\n" + "Add whipped Cream? " + isCheckedCream + "\n" + "Add Chocolate? " + isCheckedChocolate + "\n"+ "Quantity: " + quantity + "\n" + "Total: " + price + "\n" + "Thank you!";
         return summary;
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
     }
 
     /**
