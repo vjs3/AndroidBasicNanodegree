@@ -16,9 +16,9 @@
         android:layout_marginBottom="16dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/toppings"/>
+        style="@style/HeaderTextStyle"
+        android:text="@string/toppings"
+        android:layout_width="wrap_content" />
 
     <CheckBox
         android:id="@+id/notify_me_checkbox"
@@ -38,8 +38,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
+        style="@style/HeaderTextStyle"
         android:text="@string/quantity" />
 
     <LinearLayout
@@ -50,8 +49,8 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:onClick="incrementOrder"
-            android:text="@string/plus" />
+            android:onClick="decrementOrder"
+            android:text="@string/subtract" />
 
         <TextView
             android:id="@+id/quantity_text_view"
@@ -66,8 +65,8 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:onClick="decrementOrder"
-            android:text="@string/subtract" />
+            android:onClick="incrementOrder"
+            android:text="@string/plus" />
 
     </LinearLayout>
 
