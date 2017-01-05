@@ -21,6 +21,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
+    int price = 0;
     boolean isCheckedCream;
     boolean isCheckedChocolate;
     CheckBox checkBoxCream;
@@ -37,14 +38,31 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = calculatePrice();
+        price = calculatePrice();
         checkBoxCream = (CheckBox) findViewById(R.id.notify_me_checkbox);
         checkBoxChocolate = (CheckBox) findViewById(R.id.notify_me_checkbox_choc);
         name = (EditText) findViewById(R.id.et_name);
         String value = name.getText().toString();
         isCheckedCream = checkBoxCream.isChecked();
         isCheckedChocolate = checkBoxChocolate.isChecked();
-        String summary = createOrderSummary(price, isCheckedCream, isCheckedChocolate, value);
+
+        if(isCheckedCream && isCheckedChocolate){
+            price =  price + 3;
+        }
+
+        else if(isCheckedCream && isCheckedChocolate == false){
+            price = price + 1;
+        }
+
+        else if(isCheckedChocolate && isCheckedCream == false){
+            price = price + 2;
+        }
+
+
+
+
+
+        String summary = createOrderSummary(price, isCheckedCream, isCheckedChocolate, value, quantity);
         displayMessage(summary);
     }
 
@@ -58,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         return price;
     }
 
-    private String createOrderSummary(int price, boolean isCheckedCream, boolean isCheckedChocolate, String name){
-        String summary = "Name:" + name +"\n" + "Add whipped Cream? " + isCheckedCream + "\n" + "Add Chocolate? " + isCheckedChocolate + "\n"+ "Quantity: 3\n" + "Total $15\n" + "Thank you!";
+    private String createOrderSummary(int price, boolean isCheckedCream, boolean isCheckedChocolate, String name, int quantity){
+        String summary = "Name: " + name + "\n" + "Add whipped Cream? " + isCheckedCream + "\n" + "Add Chocolate? " + isCheckedChocolate + "\n"+ "Quantity: " + quantity + "\n" + "Total: " + price + "\n" + "Thank you!";
         return summary;
     }
 
