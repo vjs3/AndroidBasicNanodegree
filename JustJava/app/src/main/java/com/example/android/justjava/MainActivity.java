@@ -7,10 +7,12 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -95,11 +97,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void incrementOrder(View view) {
         quantity++;
+        if(quantity > 100){
+            quantity = 100;
+            Toast.makeText(this, "You can't order more than 100 cup of coffees", Toast.LENGTH_SHORT).show();
+            return;
+        }
         displayQuantity(quantity);
     }
 
     public void decrementOrder(View view) {
         quantity--;
+        if(quantity < 1) {
+            quantity = 1;
+            Toast.makeText(this, "You can't order less than 1 cup of coffee", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
         displayQuantity(quantity);
+        }
     }
 }
