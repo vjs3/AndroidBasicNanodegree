@@ -40,7 +40,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         englishTranslation.setText(currentWord.getEnglishTranslation());
         miwokTranslation.setText(currentWord.getMiwokTranslation());
-        imageView.setImageResource(currentWord.getImageResourceId());
+       // imageView.setImageResource(currentWord.getImageResourceId());
 
         if(currentWord.hasImage()) {
             imageView.setImageResource(currentWord.getImageResourceId());
