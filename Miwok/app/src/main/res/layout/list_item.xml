@@ -18,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:background="@color/category_numbers">
+        android:paddingLeft="16dp">
 
 
     <TextView
