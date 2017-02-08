@@ -19,17 +19,21 @@ public class Word {
 
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
+    private int mAudioResourceId;
+
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String englishTranslation, String miwokTranslation){
+    public Word(String englishTranslation, String miwokTranslation, int audioResourceId){
         mEnglishTranslation = englishTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
-    public Word(String englishTranslation, String miwokTranslation, int imageResourceId){
+    public Word(String englishTranslation, String miwokTranslation, int imageResourceId, int audioResourceId){
         mEnglishTranslation = englishTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /*Get English translation of word*/
@@ -48,5 +52,9 @@ public class Word {
 
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getmAudioResourceId() {
+        return mAudioResourceId;
     }
 }
