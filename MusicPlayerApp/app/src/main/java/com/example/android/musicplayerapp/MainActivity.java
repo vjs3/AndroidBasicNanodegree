@@ -8,16 +8,16 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button playSong;
-    Button pauseSong;
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playSong = (Button) findViewById(R.id.play);
-        pauseSong = (Button) findViewById(R.id.pause);
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sample_tune);
+        Button playSong = (Button) findViewById(R.id.play);
+        Button pauseSong = (Button) findViewById(R.id.pause);
+        mediaPlayer = MediaPlayer.create(this, R.raw.sample_tune);
         playSong.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
