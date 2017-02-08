@@ -19,9 +19,9 @@ public class NumbersActivity extends AppCompatActivity {
     private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
-            releaseMediaPlayer();;
+            releaseMediaPlayer();
         }
-    }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
