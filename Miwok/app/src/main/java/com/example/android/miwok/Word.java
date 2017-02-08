@@ -10,6 +10,15 @@ package com.example.android.miwok;
  * translation of the word.
  */
 public class Word {
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mEnglishTranslation='" + mEnglishTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
 
     /*English translation of word*/
     private String mEnglishTranslation;
